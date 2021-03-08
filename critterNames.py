@@ -1,3 +1,4 @@
+import time
 import argparse
 import requests
 import json
@@ -7,6 +8,8 @@ print('--------------------------------------------')
 print('BOX CRITTERS NAME CHECKER v1.0')
 print('github.com/TimTree/box-critters-name-checker')
 print('--------------------------------------------')
+
+start = time.perf_counter()
 
 parser = argparse.ArgumentParser()
 parser.add_argument(
@@ -54,7 +57,10 @@ for name in allNames:
     count += 1
 print('')
 print('---')
-print(f'Found {len(untakenNames)} untaken nicknames')
+print(f'Found {len(untakenNames)} untaken nickname(s)')
 print('---')
-for all in untakenNames:
-    print(all)
+for untakenName in untakenNames:
+    print(untakenName)
+
+finish = time.perf_counter()
+print(f'Finished in {round(finish-start, 2)} second(s)')
